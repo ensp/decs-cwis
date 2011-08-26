@@ -1,0 +1,198 @@
+
+#decs-module {	
+	position: relative;
+	background: #FFFFFF;
+/*	padding: 10px;
+	margin: 10px 0;
+	background: #EDF5FA;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px; */		
+}
+
+	#decs-module label {
+		display:inline;
+	}
+
+	#decs-module-panel-toggle {
+		cursor: pointer;
+		color: #027AC6;
+		padding-left: 25px;
+		line-height:22px;
+	}
+		.decs-module-panel-toggle-closed {
+			background: url(img/toggle-closed.gif) no-repeat left center;
+			height:20px;
+		}
+		.decs-module-panel-toggle-oppened {
+			background: url(img/toggle-oppened.gif) no-repeat left center; 		
+			height:20px;	
+		}
+	
+	#decs-module-panel {
+		display: none;		
+		padding: 0 !important;
+		margin: 10px 0 0 0;
+	}
+	
+		#decs-module-search {
+			padding: 0 10px 0 0;
+		}	
+			#decs-module-search-field {				
+				font:12px arial;
+				width: 250px;			
+				padding: 2px;			
+				border:1px solid #cccccc;
+			}		
+			#decs-module-search-button {
+				/* border: 1px solid #555;
+				border-top-color: #dedede;	
+				border-left-color: #dedede;					
+				padding: 4px;
+				cursor: pointer;
+				background: #EDF5FA; /* #eaeaea
+				color: #027AC6; /* color: #555; */
+				font:12px arial;
+				background:#006699 url(img/botao-bg.gif) repeat-x top left;
+				border:1px solid #006699;
+				color:#ffffff;
+				font-weight:bold;
+				padding:1px 5px 2px 5px;
+				vertical-align:middle;
+				width:auto;
+				overflow:visible;
+				outline:0;
+				*border-color:transparent;
+			}
+			
+		#decs-module-descriptors {
+			overflow: auto;
+			padding: 0 !important;
+			width:905px;
+			height:200px;
+		}
+			#decs-module-descriptors-list {
+				margin: 0 0 5px 0;
+				padding: 0;			
+				list-style:none;
+			}		
+				#decs-module-descriptors-list li {
+					line-height: 22px;
+					margin: 0;
+					padding: 6px 0 4px 10px;								
+					background: none;		
+					border-bottom:1px solid #cccccc;		
+				}
+				#decs-module-descriptors-list li.decs-module-alert-1 {
+					margin: 10px 0 0 0;
+					background-color: #eeeeee;				
+				}
+				#decs-module-descriptors-list li.decs-module-alert-2 {
+					/* color: #333300;
+					background: #CCFFCC; */
+					line-height: 24px;
+					margin: 10px 0 0 0;
+					padding: 3px 0 0 10px;
+					background-color: #eeeeee;
+					font-weight:bold;					
+				}
+					#decs-module-descriptors-list li span.decs-module-descriptor {
+						cursor: pointer;				
+						padding-left: 4px;				
+					}					
+						.decs-module-descriptor-hover {
+							color: #006699;			
+						}
+					#decs-module-descriptors-list li .decs-module-descriptor-add {
+						cursor: pointer;
+						display: block;
+						float: left;
+						width: 20px;
+						height: 20px;
+						background:transparent url(img/botao-adiciona.gif) no-repeat center;						
+					}
+					
+	#decs-module-selected-descriptors {
+		padding: 10px 0 0 0;
+		margin: 0;
+		width:905px;
+	}
+		#decs-module-selected-descriptors-list {
+			margin: 0;
+			padding: 0;
+			list-style: none;				
+		}
+			#decs-module-selected-descriptors-list li {
+				line-height: 22px;
+				margin: 0;
+				padding: 6px 0 4px 10px;								
+				background: none;		
+				border-bottom:1px solid #cccccc;
+			}			
+			#decs-module-selected-descriptors-list li#decs-module-selected-descriptors-list-title {
+				line-height: 24px;
+				margin: 0;
+				padding: 3px 0 0 10px;
+				font-weight: bold;
+				background-color: #eeeeee;
+			}			
+				#decs-module-selected-descriptors-list li span.decs-module-descriptor-remove {
+					cursor: pointer;
+					display: block;
+					float: left;
+					width: 20px;
+					height: 20px;
+					background:transparent url(img/botao-remove.gif) no-repeat center;				
+				}			
+				#decs-module-selected-descriptors-list li span.decs-module-selected-descriptor {
+					display: block;
+					float: left;	
+					padding-left: 10px;		
+				}			
+
+	#decs-module-loading {
+		background: #fff url(img/loading.gif) center no-repeat;
+		position: absolute;
+		display:none;
+	}
+			
+	#decs-module-breadcrumb {
+		background-color:#006699;
+		color:#ffffff;
+		font-weight:bold;
+		margin:10px 0 0 0;
+	}
+	
+	#decs-module-breadcrumb p {
+		padding: 5px 10px;			
+		margin: 0;		
+	}	
+	
+	.decs-module-breadcrumb-fist-step, .decs-module-breadcrumb-step {
+		text-decoration: underline;
+		color: white;
+		cursor: pointer;
+	}
+	
+	#decs-module-descriptor-deail {
+		background-color:#dcdcff;
+	}
+	#decs-module-descriptor-deail p {
+		padding: 10px;
+		margin: 0;
+	}
+
+/* clearfix */
+
+.decs-clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+	}
+.decs-clearfix { display: inline-table; }
+/* Hides from IE-mac \*/
+* html .decs-clearfix { height: 1%; }
+.decs-clearfix { display: block; }
+/* End hide from IE-mac */	

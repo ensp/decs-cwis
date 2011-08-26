@@ -1,0 +1,13 @@
+Decs CWIS module
+
+This module has been imported from Decs drupal6 module.
+
+He add the decs field in the Resource form and save the descriptors in the database.
+
+It has been tested with 2.1.2.
+
+Requirements:
+php-curl OR php-simplexml
+
+Instalation:
+    Enable the plugin in index.php?P=Plugins page

@@ -1,0 +1,27 @@
+<?php
+
+/**
+ *  @TODO This should not be the best way to use ajax in CWIS but worked
+ *  well in tests.
+ */
+
+// get new decs object
+$getdecs = new Decs();
+
+if( empty( $_GET['treeid'] ) ){
+  // get decs from bvs with words
+  $resultado = $getdecs->getDescriptorsByWords( $_GET['words'] );
+
+} elseif( isset($_GET['treeid']) ) {
+  // get decs from bvs with treeid
+  $resultado = $getdecs->getDescriptorsByTreeId( $_GET['treeid'] );
+
+} else {
+  // Need a better error treatment.
+  Throw new Exception( 'Treeid or words not found' );
+
+}
+// Send te result as json to the user
+print json_encode($resultado);
+
+exit;
