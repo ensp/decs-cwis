@@ -1,8 +1,10 @@
-Plugin do decs para o CWIS
+Plugin DECS para o CWIS
 
-Este modulo foi importado do modulo decs para drupal6.
+Este pluigin foi adaptado a partir do modulo DECS para Drupal6.
 
-Ele adiciona um campo no formulário pega os descritores do servidor bvs.salude e salva os descritores no banco.
+Ele adiciona um campo no formulário que consulta os descritores no
+servidor da Bireme (bvs.salud)  e armazena os descritores selecionados
+na base local .
 
 O modulo foi testado com a versão 2.1.2 do CWIS.
 
@@ -10,7 +12,13 @@ Requirements:
 php-curl OR php-simplexml
 
 Instalação:
-Ative o plugins na página index.php?P=Plugins
+1. Baixar o plugin no https://github.com/ensp/decs-cwis
+2. Descompactar o plugin
+3. Renomear a pasta do plugin para Decs
+4. Copiar a pasta Decs para a pasta plugins dentro do CWIS
+5. Ativar o plugins na página index.php?P=Plugins
 
-Esta versão ainda não possui configuração e salva os descritores em um campo do tipo texto e no momento só está pegando os descritores em portuquês
+No momento o plugin só retorna os descritores (termos) em português,
+necessitando de passgem de parâmetros para outras linguagens.
+
 
