@@ -2,9 +2,9 @@ Plugin DECS para o CWIS
 
 Este pluigin foi adaptado a partir do modulo DECS para Drupal6.
 
-Ele adiciona um campo no formulário que consulta os descritores no
-servidor da Bireme (bvs.salud)  e armazena os descritores selecionados
-na base local .
+Ele adiciona um campo no formulário de recursos, consulta os descritores no
+servidor da Bireme (bvs.salud) e armazena os descritores selecionados
+na base local.
 
 O modulo foi testado com a versão 2.1.2 do CWIS.
 
