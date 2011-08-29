@@ -1,13 +1,16 @@
-Decs CWIS module
+Plugin do decs para o CWIS
 
-This module has been imported from Decs drupal6 module.
+Este modulo foi importado do modulo decs para drupal6.
 
-He add the decs field in the Resource form and save the descriptors in the database.
+Ele adiciona um campo no formulário pega os descritores do servidor bvs.salude e salva os descritores no banco.
 
-It has been tested with 2.1.2.
+O modulo foi testado com a versão 2.1.2 do CWIS.
 
 Requirements:
 php-curl OR php-simplexml
 
-Instalation:
-    Enable the plugin in index.php?P=Plugins page
+Instalação:
+Ative o plugins na página index.php?P=Plugins
+
+Esta versão ainda não possui configuração e salva os descritores em um campo do tipo texto e no momento só está pegando os descritores em portuquês
+
