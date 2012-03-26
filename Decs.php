@@ -7,6 +7,8 @@
  */
 class Decs extends Plugin {
 
+	var $language = "es";
+
     // register the plugin 
     public function Register(){
         $this->Name = "Decs";
@@ -14,7 +16,6 @@ class Decs extends Plugin {
         $this->Description = "This plugin add the Decs field in the resource form";
         $this->Author = "CCI/ENSP";
         $this->Email = "cci@ensp.fiocruz.br";
-        $this->Language = "es";
     }
 
     /**
@@ -79,7 +80,7 @@ class Decs extends Plugin {
    */
   public function getDescriptorsByWords($words){
 
-    $xmlFile = Decs::getDescriptorsFromDecs( 'http://decs.bvsalud.org/cgi-bin/mx/cgi=@vmx/decs/?&language='.$this->Language.'&bool=' . urlencode($words) );
+    $xmlFile = Decs::getDescriptorsFromDecs( 'http://decs.bvsalud.org/cgi-bin/mx/cgi=@vmx/decs/?bool=' . urlencode($words) . "&lang=" . $this->language ); 
 
     $xmlTree = $xmlFile->xpath("/decsvmx/decsws_response");
 
