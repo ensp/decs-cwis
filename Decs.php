@@ -84,7 +84,7 @@ class Decs extends Plugin {
 		$lang = $this->language;
 	  }
 
-    $xmlFile = Decs::getDescriptorsFromDecs( 'http://decs.bvsalud.org/cgi-bin/mx/cgi=@vmx/decs/?bool=' . urlencode($words) . "&lang=" . $lang ); 
+    $xmlFile = Decs::getDescriptorsFromDecs( 'http://decs.bvsalud.org/cgi-bin/mx/cgi=@vmx/decs/?words=' . urlencode($words) . "&lang=" . $lang ); 
 
     $xmlTree = $xmlFile->xpath("/decsvmx/decsws_response");
 
