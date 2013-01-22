@@ -10,7 +10,7 @@ $getdecs = new Decs();
 
 if( empty( $_GET['treeid'] ) ){
   // get decs from bvs with words
-  $resultado = $getdecs->getDescriptorsByWords( $_GET['words'] );
+  $resultado = $getdecs->getDescriptorsByWords( $_GET['words'], $_GET['lang'] );
 
 } elseif( isset($_GET['treeid']) ) {
   // get decs from bvs with treeid

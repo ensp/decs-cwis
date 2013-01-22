@@ -78,9 +78,13 @@ class Decs extends Plugin {
    *  @TODO this version return only portuguese descriptor and need work
    *  on all lanquages.
    */
-  public function getDescriptorsByWords($words){
+  public function getDescriptorsByWords($words, $lang){
+	  
+	  if(empty($lang)) {
+		$lang = $this->language;
+	  }
 
-    $xmlFile = Decs::getDescriptorsFromDecs( 'http://decs.bvsalud.org/cgi-bin/mx/cgi=@vmx/decs/?bool=' . urlencode($words) . "&lang=" . $this->language ); 
+    $xmlFile = Decs::getDescriptorsFromDecs( 'http://decs.bvsalud.org/cgi-bin/mx/cgi=@vmx/decs/?bool=' . urlencode($words) . "&lang=" . $lang ); 
 
     $xmlTree = $xmlFile->xpath("/decsvmx/decsws_response");
 
