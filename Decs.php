@@ -107,17 +107,21 @@ class Decs extends Plugin {
    *  @return array 
    *  @TODO this version only work with lanquage pt-bt and need work with all decs langs
    */
-  public function getDescriptorsByTreeId($treeId){
+  public function getDescriptorsByTreeId($treeId, $lang){
 
+		if(empty($lang)) {
+			$lang = $this->language;
+		}
+      
       $descriptors = array();	
 
       $result = array();
 
-      $xmlFile = Decs::getDescriptorsFromDecs( 'http://decs.bvsalud.org/cgi-bin/mx/cgi=@vmx/decs?tree_id=' . $treeId );
+      $xmlFile = Decs::getDescriptorsFromDecs( 'http://decs.bvsalud.org/cgi-bin/mx/cgi=@vmx/decs?tree_id=' . $treeId . "&lang=" . $lang );
 
-      $term = $xmlFile->xpath("/decsvmx/decsws_response/tree/self/term_list[@lang='pt']/term");
+      $term = $xmlFile->xpath("/decsvmx/decsws_response/tree/self/term_list[@lang='".$lang."']/term");
       $definition = $xmlFile->xpath("/decsvmx/decsws_response/record_list/record/definition/occ/@n");
-      $descendants = $xmlFile->xpath("/decsvmx/decsws_response/tree/descendants/term_list[@lang='pt']/term");
+      $descendants = $xmlFile->xpath("/decsvmx/decsws_response/tree/descendants/term_list[@lang='".$lang."']/term");
 
       foreach($descendants as $descendant)
 	      $descriptors[ (string) $descendant ] = array('tree_id'=>(string) $descendant['tree_id']);			

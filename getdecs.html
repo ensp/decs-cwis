@@ -14,7 +14,7 @@ if( empty( $_GET['treeid'] ) ){
 
 } elseif( isset($_GET['treeid']) ) {
   // get decs from bvs with treeid
-  $resultado = $getdecs->getDescriptorsByTreeId( $_GET['treeid'] );
+  $resultado = $getdecs->getDescriptorsByTreeId( $_GET['treeid'], $_GET['lang'] );
 
 } else {
   // Need a better error treatment.

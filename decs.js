@@ -87,10 +87,12 @@ jQuery(document).ready(function(){
 		/*
 		 * inicializa comportamento dos descritores 
 		 */
-		Decs.descriptorBehavior = function(){					
+		Decs.descriptorBehavior = function(){	
+
+			var lang = jQuery("#decs-module-lang-field").val();				
 			
 			jQuery("#decs-module-descriptors-list .decs-module-descriptor").click(function(){ // obtem lista de descritores por termo																
-				Decs.getDescriptorsByTreeId(jQuery(this).attr("id").replace("decs-module-descriptor-", ""), jQuery(this).text());
+				Decs.getDescriptorsByTreeId(jQuery(this).attr("id").replace("decs-module-descriptor-", ""), jQuery(this).text(), lang);
 			});			
 						
 			jQuery("#decs-module-descriptors-list .decs-module-descriptor").mouseover(function(){ // altera cor do texto
@@ -443,7 +445,7 @@ jQuery(document).ready(function(){
 
 		};
 		
-		Decs.getDescriptorsByTreeId = function(treeId, text){
+		Decs.getDescriptorsByTreeId = function(treeId, text, lang){
 						
 			this.startLoading(); // mostra loading
 			
@@ -464,8 +466,8 @@ jQuery(document).ready(function(){
 				alert('Could not connect to the service DeCS, the Internet connection may be unstable at this time.');
 				Decs.stopLoading();
 			}, 10000, null);						
-			
-			jQuery.getJSON(decsTreeUri + treeId, function(data){
+
+			jQuery.getJSON(decsTreeUri + treeId + "&lang=" + lang, function(data){
 				clearTimeout(timeoutId); // cancela execução do tratamento de erro				
 				Decs.steps.push({'text':text,'treeId':treeId});
 				Decs.updateDescriptorsByTreeId(data.result);												
