@@ -22,6 +22,11 @@ jQuery(document).ready(function(){
 					'	<div id="decs-module-panel">' + // decs-module-panel 
 					'		<div id="decs-module-search">' + // decs-module-search 
 					'			<input type="text" id="decs-module-search-field"/>' + // decs-module-search-field
+					'			<select id="decs-module-lang-field">' +
+					'				<option value="en" checked="true">English</option>' + 
+					'				<option value="pt" >Portuguese</option>' +
+					'				<option value="es" >Spanish</option>' +
+					'			</select>' + 
 					'			<input type="button" id="decs-module-search-button" value="Search"/>' + // decs-module-search-button
 					'		</div>' +
 					'		<div id="decs-module-descriptors">' + // decs-module-descriptors
@@ -82,10 +87,12 @@ jQuery(document).ready(function(){
 		/*
 		 * inicializa comportamento dos descritores 
 		 */
-		Decs.descriptorBehavior = function(){					
+		Decs.descriptorBehavior = function(){	
+
+			var lang = jQuery("#decs-module-lang-field").val();				
 			
 			jQuery("#decs-module-descriptors-list .decs-module-descriptor").click(function(){ // obtem lista de descritores por termo																
-				Decs.getDescriptorsByTreeId(jQuery(this).attr("id").replace("decs-module-descriptor-", ""), jQuery(this).text());
+				Decs.getDescriptorsByTreeId(jQuery(this).attr("id").replace("decs-module-descriptor-", ""), jQuery(this).text(), lang);
 			});			
 						
 			jQuery("#decs-module-descriptors-list .decs-module-descriptor").mouseover(function(){ // altera cor do texto
@@ -183,9 +190,10 @@ jQuery(document).ready(function(){
 			button.click(function(){
 				
 				var value = jQuery("#decs-module-search-field").val();
+				var lang = jQuery("#decs-module-lang-field").val();
 				
 				if (value.split(' ').join('') != '')
-					Decs.getDescriptorsByWords(value);
+					Decs.getDescriptorsByWords(value, lang);
 				else
 					alert("The search field is empty");
 			});
@@ -419,7 +427,7 @@ jQuery(document).ready(function(){
 		 * retorna lista de descritores
 		 * words String
 		 */
-		Decs.getDescriptorsByWords = function(words){				
+		Decs.getDescriptorsByWords = function(words, lang){				
 						
 			this.startLoading(); // mostra loading
 								
@@ -427,8 +435,8 @@ jQuery(document).ready(function(){
 				alert('Não foi possível conectar o serviço DeCS, a conexão com a Internet pode estar instável neste momento.');
 				Decs.stopLoading();
 			}, 10000, null);
-			
-			jQuery.getJSON(decsWordsUri + words, function(data){ // tenta conexão com DeCS para obter os descritores por termo				
+
+			jQuery.getJSON(decsWordsUri + words + "&lang=" + lang, function(data){ // tenta conexão com DeCS para obter os descritores por termo				
 				clearTimeout(timeoutId); // cancela execução do tratamento de erro				
 				Decs.updateDescriptors( data.descriptors ); // atualiza lista de descritores com resultado da busca											
 				Decs.steps = new Array();
@@ -437,7 +445,7 @@ jQuery(document).ready(function(){
 
 		};
 		
-		Decs.getDescriptorsByTreeId = function(treeId, text){
+		Decs.getDescriptorsByTreeId = function(treeId, text, lang){
 						
 			this.startLoading(); // mostra loading
 			
@@ -458,8 +466,8 @@ jQuery(document).ready(function(){
 				alert('Could not connect to the service DeCS, the Internet connection may be unstable at this time.');
 				Decs.stopLoading();
 			}, 10000, null);						
-			
-			jQuery.getJSON(decsTreeUri + treeId, function(data){
+
+			jQuery.getJSON(decsTreeUri + treeId + "&lang=" + lang, function(data){
 				clearTimeout(timeoutId); // cancela execução do tratamento de erro				
 				Decs.steps.push({'text':text,'treeId':treeId});
 				Decs.updateDescriptorsByTreeId(data.result);												
